@@ -1,0 +1,43 @@
+{
+  "name": "ngx-picklist",
+  "version": "0.0.1",
+  "description": "Angular picklist component",
+  "keywords": [
+    "angular",
+    "ngx-picklist",
+    "ngx-pick-list",
+    "picklist",
+    "reorder list",
+    "drag and drop",
+    "drag-drop",
+    "angular picklist",
+    "list",
+    "angular-6",
+    "angular-7",
+    "angular-8",
+    "angular-9",
+    "angular-10",
+    "angular-11",
+    "angular-12",
+    "angular-13",
+    "angular-14"
+  ],
+  "author": {
+    "name": "Giorgi Merabishvili",
+    "email": "gtmerabishvili@gmail.com",
+    "url": "https://www.linkedin.com/in/giorgi-merabishvili-3719a2121/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmerabishvili/ngx-picklist"
+  },
+  "homepage": "https://gmerabishvili.github.io/ngx-picklist/",
+  "peerDependencies": {
+    "@angular/common": "^14.0.0",
+    "@angular/core": "^14.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

@@ -1,0 +1,79 @@
+<div class="ngx-picklist" [class]="styleClass" cdkDropListGroup>
+  <div class="ngx-picklist-list-wrapper source-wrapper">
+    <div class="ngx-picklist-header" *ngIf="sourceHeaderTemplate">
+      <ng-container *ngTemplateOutlet="sourceHeaderTemplate"></ng-container>
+    </div>
+    <ul class="ngx-picklist-list source"
+        cdkDropList
+        [cdkDropListData]="source"
+        (cdkDropListDropped)="onDrop($event, SOURCE_LIST)"
+        role="listbox"
+        aria-multiselectable="multiple">
+      <ng-template ngFor let-item [ngForOf]="source" [ngForTrackBy]="trackBy" let-i="index">
+        <li
+          [ngClass]="{'ngx-picklist-item':true, 'highlight':isSelected(item,selectedItemsSource), 'disabled': disabled}"
+          cdkDrag [cdkDragData]="item" [cdkDragDisabled]="dragdropDisabled || disabled"
+          (click)="onItemClick($event, item, selectedItemsSource, sourceSelected)"
+          (dblclick)="onSourceItemDblClick()"
+          (keydown)="onItemKeydown($event, item, selectedItemsSource, sourceSelected)"
+          tabindex="0" role="option"
+          [attr.aria-selected]="isSelected(item, selectedItemsSource)">
+          <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item, index: i}"></ng-container>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+
+  <div class="ngx-picklist-buttons" *ngIf="showControls">
+    <button type="button" class="move-to-target" aria-label="Move to target"
+            [disabled]="moveToTargetDisabled()"
+            (click)="moveToTarget()">
+      <i class="material-icons" aria-label="chevron_right">chevron_right</i>
+    </button>
+    <button type="button" class="move-all-to-target" aria-label="Move all to target"
+            [disabled]="moveAllToTargetDisabled()"
+            (click)="moveAllToTarget()">
+      <i class="material-icons" aria-label="chevron_right">keyboard_double_arrow_right</i>
+    </button>
+    <button type="button" class="move-to-source" aria-label="Move to source"
+            [disabled]="moveToSourceDisabled()"
+            (click)="moveToSource()">
+      <i class="material-icons" aria-label="chevron_right">chevron_left</i>
+    </button>
+    <button type="button" class="move-all-to-source" aria-label="Move all to source"
+            [disabled]="moveAllToSourceDisabled()"
+            (click)="moveAllToSource()">
+      <i class="material-icons" aria-label="chevron_right">keyboard_double_arrow_left</i>
+    </button>
+    <button type="button" class="reset" aria-label="Reset" *ngIf="showResetControl"
+            [disabled]="resetDisabled()"
+            (click)="resetItems()">
+      <i class="material-icons" aria-label="refresh">refresh</i>
+    </button>
+  </div>
+
+  <div class="ngx-picklist-list-wrapper target-wrapper">
+    <div class="ngx-picklist-header" *ngIf="targetHeaderTemplate">
+      <ng-container *ngTemplateOutlet="targetHeaderTemplate"></ng-container>
+    </div>
+    <ul class="ngx-picklist-list target"
+        cdkDropList
+        [cdkDropListData]="target"
+        (cdkDropListDropped)="onDrop($event, TARGET_LIST)"
+        role="listbox"
+        aria-multiselectable="multiple">
+      <ng-template ngFor let-item [ngForOf]="target" [ngForTrackBy]="trackBy" let-i="index">
+        <li
+          [ngClass]="{'ngx-picklist-item':true, 'highlight':isSelected(item, selectedItemsTarget),'disabled': disabled}"
+          cdkDrag [cdkDragData]="item" [cdkDragDisabled]="dragdropDisabled || disabled"
+          (click)="onItemClick($event, item, selectedItemsTarget, targetSelected)"
+          (dblclick)="onTargetItemDblClick()"
+          (keydown)="onItemKeydown($event, item, selectedItemsTarget, targetSelected)"
+          tabindex="0" role="option"
+          [attr.aria-selected]="isSelected(item, selectedItemsTarget)">
+          <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item, index: i}"></ng-container>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+</div>

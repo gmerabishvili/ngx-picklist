@@ -1,0 +1,40 @@
+<div class="container">
+  <ngx-picklist
+    [source]="sourceBooks"
+    [target]="targetBooks"
+    [itemTemplate]="itemTemplate"
+    [sourceHeaderTemplate]="sourceHeaderTemplate"
+    [targetHeaderTemplate]="targetHeaderTemplate"
+    [showResetControl]="true"
+    (movedToTarget)="onMoveToTarget($event)"
+    (movedToSource)="onMoveToSource($event)"
+    (reset)="onReset()">
+
+    <ng-template #sourceHeaderTemplate>
+      <h3 class="title">Available</h3>
+    </ng-template>
+
+    <ng-template #targetHeaderTemplate>
+      <h3 class="title">Selected</h3>
+    </ng-template>
+
+    <ng-template #itemTemplate let-item>
+      <div class="item">
+        <div class="image-container">
+          <img src="assets/images/{{item.image}}" [alt]="item.name" class="image"/>
+        </div>
+        <div class="item-detail">
+          <h4>{{item.name}}</h4>
+          <span class="text">{{item.category}}</span>
+        </div>
+        <div class="item-description">
+          <h5>${{item.price}}</h5>
+          <span class="text">{{item.description}}</span>
+        </div>
+      </div>
+    </ng-template>
+
+  </ngx-picklist>
+</div>
+
+
