@@ -53,6 +53,16 @@ $color-warn: #f44336;
       &.reset {
         background: $color-warn;
         border: 1px solid $color-warn;
+
+        &:hover:not(:disabled) {
+          background: darken($color-warn, 10%);
+          color: $color-white;
+        }
+      }
+
+      &:hover:not(:disabled, .reset) {
+        background: darken($color-primary, 10%);
+        color: $color-white;
       }
 
       &:disabled {
