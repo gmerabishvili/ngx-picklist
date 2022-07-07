@@ -20,7 +20,7 @@ Table of contents
 
 ## Getting started
 ngx-picklist is used to reorder items between different lists. Items can be reordered using control buttons and drag and drop.  
-ngx-picklist uses @angular/cdk's DragDropModule.
+ngx-picklist uses @angular/cdk's DragDropModule: ```npm i @angular/cdk```
 
 ### Step 1: Install `ngx-picklist`:
 
@@ -30,7 +30,7 @@ npm i ngx-picklist
 ```
 ### Step 2: Import the NgxPicklistModule:
 ```js
-import {NgxPicklistModule} from 'ngx-picklist';
+import {NgxPicklistModule} from '@gmerabishvili/ngx-picklist';
 
 @NgModule({
   declarations: [AppComponent],
